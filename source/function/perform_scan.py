@@ -17,12 +17,18 @@ def perform_scan(domain, root, text_results):
         for subdomain, ip in results:
             root.after(0, lambda sub=subdomain, ip=ip: text_results.insert(tk.END, f"→ {sub}  →  {ip}\n"))
         
-        os.makedirs('../../find', exist_ok=True)  # Adjusted path from subfolder
-        with open('../../find/found_subdomains.txt', 'w', encoding='utf-8') as f:  # Added encoding='utf-8'
+        # Dynamic path to project root's 'result' folder
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        root_dir = os.path.abspath(os.path.join(script_dir, '..', '..'))  # Navigate to project root
+        result_dir = os.path.join(root_dir, 'result')
+        os.makedirs(result_dir, exist_ok=True)
+        file_path = os.path.join(result_dir, 'found_subdomains.txt')
+        
+        with open(file_path, 'w', encoding='utf-8') as f:
             for subdomain, ip in results:
                 f.write(f"{subdomain} → {ip}\n")
-        root.after(0, lambda: text_results.insert(tk.END, "\nResults saved to find/found_subdomains.txt\n"))
+        root.after(0, lambda: text_results.insert(tk.END, "\nResults saved to result/found_subdomains.txt\n"))
     else:
-        root.after(0, lambda: text_results.insert(tk.END, "❌ No subdomains found. (Check assets/wordlist.txt?)\n"))
+        root.after(0, lambda: text_results.insert(tk.END, "❌ No subdomains found. (Check wordlist.txt?)\n"))
     
     root.after(0, text_results.update)
