@@ -1,4 +1,3 @@
-# source/main.py
 from function.load_wordlist import load_wordlist
 from function.create_gui import create_gui
 
