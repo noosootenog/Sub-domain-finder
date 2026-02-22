@@ -2,7 +2,7 @@ from function.load_wordlist import load_wordlist
 from function.create_gui import create_gui
 
 if __name__ == "__main__":
-    # Condition: Pre-check wordlist
+    
     wordlist = load_wordlist()
     if not wordlist:
         print("Warning: No wordlist loaded. Scans may return no results.")
