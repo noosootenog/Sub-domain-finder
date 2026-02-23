@@ -1,4 +1,3 @@
-# source/function/create_gui.py
 import tkinter as tk
 from tkinter import scrolledtext
 from .start_scan import start_scan  # Import from same folder
@@ -26,4 +25,4 @@ def create_gui():
     text_results = scrolledtext.ScrolledText(root, height=18, width=75, font=("Consolas", 10))
     text_results.pack(pady=10, padx=15)
 
-    return root, entry_domain, text_results  # Return components if needed (unused for now)
+    return root, entry_domain, text_results  
