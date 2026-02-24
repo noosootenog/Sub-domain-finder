@@ -1,4 +1,3 @@
-# source/function/find_subdomains.py
 import socket
 from .load_wordlist import load_wordlist  # Import from same folder
 
