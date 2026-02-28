@@ -22,36 +22,29 @@ To install the Sub-domain Finder, follow these steps:
    pip install -r requirements.txt
    ```
 
-## Usage
-To run the Sub-domain Finder, use the following command:
-```bash
-python finder.py -d <domain_name>
-```
-Replace `<domain_name>` with the target domain you want to enumerate sub-domains for.
 
 ## Project Structure
 The project structure is as follows:
 ```
-Sub-domain-finder/
-├── finder.py        # Main script to run the tool
-├── requirements.txt  # List of dependencies
-└── README.md        # Project documentation
+├── result/
+│   └── found_subdomains.txt
+├── source/
+│   ├── function/
+│   │   ├── create_gui.py
+│   │   ├── find_subdomains.py
+│   │   ├── load_wordlist.py
+│   │   ├── perform_scan.py
+│   │   └── start_scan.py
+│   └── main.py
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── wordlist.txt
+
 ```
 
 ## How it Works
 Sub-domain Finder utilizes a combination of DNS lookups and common sub-domain naming conventions to find potential sub-domains quickly. It leverages popular APIs for more comprehensive results.
-
-## Configuration
-You can configure the tool by modifying the `config.json` file. Here, you can set your preferred APIs, DNS servers, and other parameters.
-
-## Output
-The tool generates an output file named `results.txt` containing the enumerated sub-domains and their corresponding IP addresses.
-
-## Troubleshooting
-If you encounter issues while running the tool:
-- Ensure that your internet connection is stable.
-- Verify that the target domain is valid and accessible.
-- Check if any required APIs are correctly configured in the `config.json` file.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
